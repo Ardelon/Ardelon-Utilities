@@ -1,0 +1,17 @@
+{
+	"name": "ardelon-utilities",
+	"version": "1.0.1",
+	"description": "Utility functions for personal use.",
+	"exports": {
+		".": "src/index.js"
+	},
+	"main": "src/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"utility"
+	],
+	"author": "Alihan Keskin <akeskinw@gmail.com>",
+	"license": "ISC"
+}

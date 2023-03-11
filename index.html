@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<button type="button">Click me to add text</button>
+
+		<script>
+			const button = document.querySelector("button");
+			button.addEventListener(
+				"click",
+				debounce(
+					() => {
+						const div = document.createElement("div");
+						div.innerText = "Clicked";
+						document.body.appendChild(div);
+					},
+					500,
+					true
+				)
+			);
+
+			function debounce(fn, wait, immediate) {
+				let timeout;
+				return function setDebounce(...args) {
+					const later = () => {
+						timeout = null;
+						if (!immediate) {
+							fn.apply(this, args);
+						}
+					};
+
+					const callNow = immediate && !timeout;
+					clearTimeout(timeout);
+					timeout = setTimeout(later, wait || 200);
+
+					if (callNow) {
+						fn.apply(this, args);
+					}
+				};
+			}
+		</script>
+	</body>
+</html>
